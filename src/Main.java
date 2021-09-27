@@ -1,24 +1,21 @@
 public class Main {
     public static void main(String[] args) {
-
         LinkedList list = new LinkedList();
 
-        list = list.insert(list, 1);
-        list = list.insert(list, 2);
-        list = list.insert(list, 3);
-        list = list.insert(list, 4);
-        list = list.insert(list, 5);
-        list = list.insert(list, 6);
-        list = list.insert(list, 7);
-        list = list.insert(list, 8);
+        list.insert(list, 98);
+        list.insert(list, 91);
+        list.insert(list, 94);
+        list.insert(list, 100);
+        list.insert(list, 97);
+        list.insert(list, 89);
+        list.insert(list, 93);
+        list.insert(list, 97);
         list.printList(list);
 
-        list.deleteByKey(list, 1);
+        list.deleteByKey(list, 89);
         list.printList(list);
 
-
-        list.deleteAtPosition(list, 2);
+        list.deleteAtPosition(list, 4);
         list.printList(list);
-
     }
 }

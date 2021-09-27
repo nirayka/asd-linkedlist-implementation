@@ -3,7 +3,6 @@ public class LinkedList {
     Node head;
 
     static class Node {
-
         int data;
         Node next;
 
@@ -15,14 +14,12 @@ public class LinkedList {
     }
 
 
-    public static LinkedList insert(LinkedList list,  int data)
-    {
+    public static LinkedList insert(LinkedList list,  int data) {
 
         Node new_node = new Node(data);
         new_node.next = null;
 
-        // If the Linked List is empty,
-        // then make the new node as head
+        // If the Linked List is empty, make the new node as head
         if (list.head == null) {
             list.head = new_node;
         }
@@ -41,8 +38,7 @@ public class LinkedList {
 
 
 
-    public static void printList(LinkedList list)
-    {
+    public static void printList(LinkedList list) {
         Node currNode = list.head;
 
         System.out.print("\nLinkedList: ");
@@ -56,20 +52,14 @@ public class LinkedList {
     }
 
 
-    public static LinkedList deleteByKey(LinkedList list,
-                                         int key)
-    {
+    public static LinkedList deleteByKey(LinkedList list, int key) {
         // Store head node
         Node currNode = list.head, prev = null;
 
         // CASE 1: If head node itself holds the key to be deleted
         if (currNode != null && currNode.data == key) {
             list.head = currNode.next; // Changed head
-
-            // Display the message
-            System.out.println(key + " found and deleted");
-
-
+            System.out.println("element of value " + key + " has been found and deleted");
             return list;
         }
 
@@ -87,21 +77,20 @@ public class LinkedList {
             // Unlink currNode from linked list
             prev.next = currNode.next;
 
-            System.out.println(key + " found and deleted");
+            System.out.println("element of value " + key + " has been found and deleted");
         }
 
 
         // CASE 3: The key is not present. if key was not present in linked list, currNode should be null
         if (currNode == null) {
-            System.out.println(key + " not found");
+            System.out.println("element of value " + key + " has not been found");
         }
 
         return list;
     }
 
 
-    public static LinkedList deleteAtPosition(LinkedList list, int index)
-    {
+    public static LinkedList deleteAtPosition(LinkedList list, int index) {
         // Store head node
         Node currNode = list.head, prev = null;
 
@@ -111,7 +100,7 @@ public class LinkedList {
             list.head = currNode.next; // Changed head
 
             System.out.println(
-                    index + " position element deleted");
+                    "element at position " + index + " has been deleted");
 
             return list;
         }
@@ -127,8 +116,7 @@ public class LinkedList {
                 // Since the currNode is the required position, unlink currNode from linked list
                 prev.next = currNode.next;
 
-                System.out.println(
-                        index + " position element deleted");
+                System.out.println("element at position " + index + " has been deleted");
                 break;
             }
             else {
@@ -141,11 +129,10 @@ public class LinkedList {
 
         if (currNode == null) {
             System.out.println(
-                    index + " position element not found");
+                    "element at position " + index + " not found");
         }
 
         return list;
     }
-
 
 }
