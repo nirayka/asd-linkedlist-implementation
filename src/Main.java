@@ -19,5 +19,7 @@ public class Main {
         list.printList(list);
 
         list.size(list);
+        list.get(list, 3);
+        list.indexOf(list, 94);
     }
 }
