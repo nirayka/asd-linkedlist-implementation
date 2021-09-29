@@ -1,7 +1,6 @@
 public class LinkedList {
 
     Node head;
-
     static class Node {
         int data;
         Node next;
@@ -31,6 +30,49 @@ public class LinkedList {
             }
 
             last.next = new_node;
+        }
+
+        return list;
+    }
+
+    public static LinkedList insert(LinkedList list, int data, int index) { // FIX THIS
+        Node currNode = list.head, prev = null;
+
+        // CASE 1: data is to be inserted at the head
+        if (index == 0) {
+            list.head = currNode.next;
+
+            return list;
+        }
+
+
+        // CASE 2: If the index is greater than 0 but less than the size of LinkedList
+        int counter = 0;
+
+        // Count for the index to be deleted, keep track of the previous node bc it's needed to change currNode.next
+        while (currNode != null) {
+
+            if (counter == index) {
+                // Since the currNode is the required position, unlink currNode from linked list
+                prev.next = currNode.next;
+
+                System.out.println("element at position " + index + " has been deleted");
+                break;
+            }
+            else {
+                // If current position is not the index, continue to next node
+                prev = currNode;
+                currNode = currNode.next;
+                counter++;
+            }
+        }
+
+
+        // CASE 3: the index is greater than the length of the list.
+        int size = list.size(list);
+
+        if (list.size(list) > index) {
+            System.out.println("Sorry, you can't insert an element at an index greater than the size of this list (which is currently " + size + ").");
         }
 
         return list;
@@ -91,9 +133,7 @@ public class LinkedList {
 
 
     public static LinkedList deleteAtPosition(LinkedList list, int index) {
-        // Store head node
         Node currNode = list.head, prev = null;
-
 
         // CASE 1: If index is 0, then head node itself is to be deleted
         if (index == 0 && currNode != null) {
@@ -133,6 +173,19 @@ public class LinkedList {
         }
 
         return list;
+    }
+
+    public static int size(LinkedList list) {
+        Node currNode = list.head, prev = null;
+        int counter = 0;
+
+        while (currNode != null) {
+            prev = currNode;
+            currNode = currNode.next;
+            counter++;
+        }
+        System.out.println("This LinkedList is " + counter + " elements long.");
+        return counter;
     }
 
 }

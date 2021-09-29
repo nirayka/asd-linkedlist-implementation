@@ -17,5 +17,7 @@ public class Main {
 
         list.deleteAtPosition(list, 4);
         list.printList(list);
+
+        list.size(list);
     }
 }
