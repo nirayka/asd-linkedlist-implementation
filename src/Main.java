@@ -1,25 +1,26 @@
 public class Main {
     public static void main(String[] args) {
-        LinkedList list = new LinkedList();
+        LinkedList grades = new LinkedList();
 
-        list.insert(list, 98);
-        list.insert(list, 91);
-        list.insert(list, 94);
-        list.insert(list, 100);
-        list.insert(list, 97);
-        list.insert(list, 89);
-        list.insert(list, 93);
-        list.insert(list, 97);
-        list.printList(list);
+        grades.insert(grades, 98);
+        grades.insert(grades, 91);
+        grades.insert(grades, 94);
+        grades.insert(grades, 100);
+        grades.insert(grades, 97);
+        grades.insert(grades, 89);
+        grades.insert(grades, 93);
+        grades.insert(grades, 97);
+        grades.printList(grades);
 
-        list.deleteByKey(list, 89);
-        list.printList(list);
+        grades.deleteByKey(grades, 89);
+        grades.printList(grades);
 
-        list.deleteAtPosition(list, 4);
-        list.printList(list);
+        grades.deleteAtPosition(grades, 4);
+        grades.printList(grades);
 
-        list.size(list);
-        list.get(list, 3);
-        list.indexOf(list, 94);
+        grades.size(grades);
+        grades.get(grades, 3);
+        grades.includes(grades, 101);
+        grades.indexOf(grades, 94);
     }
 }

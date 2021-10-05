@@ -165,18 +165,6 @@ public class LinkedList {
         return counter;
     }
 
-    public static int returnSize(LinkedList list) {
-        Node currNode = list.head, prev = null;
-        int counter = 0;
-
-        while (currNode != null) {
-            prev = currNode;
-            currNode = currNode.next;
-            counter++;
-        }
-        return counter;
-    }
-
     public static int get(LinkedList list, int index) {
         Node currNode = list.head, prev = null;
         int value = -1;
@@ -202,6 +190,16 @@ public class LinkedList {
         }
     }
 
+    public static boolean includes(LinkedList list, int key){
+        int counter = returnIndexOf(list, key);
+        if (counter == -1) {
+            System.out.println("\n" + key + " was not found in the list.");
+        } else {
+            System.out.println("\n" + key + " was found at element " + counter + ".");
+        }
+        return true;
+    }
+
     public static int indexOf(LinkedList list, int key) {
         Node currNode = list.head, prev = null;
         int counter = 0;
@@ -223,6 +221,41 @@ public class LinkedList {
             System.out.println("\nElement of value " + key + " could not be found.");
         }
 
+        return counter;
+    }
+
+    public static int returnIndexOf(LinkedList list, int key) {
+        Node currNode = list.head, prev = null;
+        int counter = 0;
+
+        if (currNode != null && currNode.data == key) {
+            return counter;
+        }
+
+        while (currNode != null && currNode.data != key) {
+            prev = currNode;
+            currNode = currNode.next;
+            counter++;
+        }
+
+        if (currNode != null) {
+            return counter;
+        } else {
+            counter = -1;
+        }
+
+        return counter;
+    }
+
+    public static int returnSize(LinkedList list) {
+        Node currNode = list.head, prev = null;
+        int counter = 0;
+
+        while (currNode != null) {
+            prev = currNode;
+            currNode = currNode.next;
+            counter++;
+        }
         return counter;
     }
 
