@@ -32,37 +32,51 @@ public class LinkedList {
         return list;
     }
 
-    public static LinkedList insert(LinkedList list, int data, int index) { // FIX THIS
+    public static LinkedList insert(LinkedList list, int data, int index) {
         Node newNode = new Node(data);
         newNode.next = null;
 
        int size = list.returnSize(list);
 
-        // CASE 1: index is to be inserted at the tail
+        // CASE 1: index is to be inserted at the end
         if (index == size) {
             Node last = list.head;
             while (last.next != null) {
                 last = last.next;
             }
             last.next = newNode;
+            System.out.println("Element of value " + data + " has been added to the list at position " + index + ".");
             return list;
         }
 
         // CASE 2: data is to be inserted at the head
         if (index == 0) {
-            // move all data up one index
+            Node temp = list.head;
             list.head = newNode;
+            list.head.next = temp;
+            System.out.println("Element of value " + data + " has been added to the list at position " + index + ".");
             return list;
         }
 
         // CASE 3: the index is >head and <tail
-        if (index < size) {
-            // move all data up one index
+        if ((index < size) && (index > 0)) {
+            Node currNode = list.head, prev = null;
+            int counter = 0;
+
+            while (currNode != null && counter < index - 1) {
+                prev = currNode;
+                currNode = currNode.next;
+                counter++;
+            }
+            Node temp = currNode.next;
+            currNode.next = newNode;
+            newNode.next = temp;
+            System.out.println("Element of value " + data + " has been added to the list at position " + index + ".");
             return list;
         }
 
         // CASE 4: the index is greater than the length of the list.
-        System.out.println("Sorry, you can't insert an element at an index greater than the size of this list (which is currently " + size + ").");
+        System.out.println("Sorry, you can't insert an element at a position greater than the size of this list (which is currently " + size + ").");
         return list;
     }
 
@@ -178,7 +192,7 @@ public class LinkedList {
             while (currNode != null) {
                 if (counter == index) {
                     value = currNode.data;
-                    System.out.println("The value at index " + index + " is " + value + ".");
+                    System.out.println("The value at position " + index + " is " + value + ".");
                     break;
                 } else {
                     prev = currNode;

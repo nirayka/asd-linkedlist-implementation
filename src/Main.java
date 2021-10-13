@@ -11,6 +11,8 @@ public class Main {
         grades.insert(grades, 93);
         grades.insert(grades, 97);
         grades.printList(grades);
+        grades.insert(grades, 101, 3);
+        grades.printList(grades);
 
         grades.deleteByKey(grades, 89);
         grades.printList(grades);
