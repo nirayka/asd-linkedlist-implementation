@@ -17,7 +17,7 @@ public class Main {
         grades.deleteByKey(grades, 89);
         grades.printList(grades);
 
-        grades.deleteAtPosition(grades, 4);
+        grades.deleteAtIndex(grades, 4);
         grades.printList(grades);
 
         grades.size(grades);

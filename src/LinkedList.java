@@ -45,7 +45,7 @@ public class LinkedList {
                 last = last.next;
             }
             last.next = newNode;
-            System.out.println("Element of value " + data + " has been added to the list at position " + index + ".");
+            System.out.println("Element of value " + data + " has been added to the list at index " + index + ".");
             return list;
         }
 
@@ -54,7 +54,7 @@ public class LinkedList {
             Node temp = list.head;
             list.head = newNode;
             list.head.next = temp;
-            System.out.println("Element of value " + data + " has been added to the list at position " + index + ".");
+            System.out.println("Element of value " + data + " has been added to the list at index " + index + ".");
             return list;
         }
 
@@ -71,12 +71,12 @@ public class LinkedList {
             Node temp = currNode.next;
             currNode.next = newNode;
             newNode.next = temp;
-            System.out.println("Element of value " + data + " has been added to the list at position " + index + ".");
+            System.out.println("Element of value " + data + " has been added to the list at index " + index + ".");
             return list;
         }
 
         // CASE 4: the index is greater than the length of the list.
-        System.out.println("Sorry, you can't insert an element at a position greater than the size of this list (which is currently " + size + ").");
+        System.out.println("Sorry, you can't insert an element at a index greater than the size of this list (which is currently " + size + ").");
         return list;
     }
 
@@ -130,13 +130,13 @@ public class LinkedList {
     }
 
 
-    public static LinkedList deleteAtPosition(LinkedList list, int index) {
+    public static LinkedList deleteAtIndex(LinkedList list, int index) {
         Node currNode = list.head, prev = null;
 
         // CASE 1: If index is 0, head node is to be deleted
         if (index == 0 && currNode != null) {
             list.head = currNode.next; // Changed head
-            System.out.println("Element at position " + index + " has been deleted.");
+            System.out.println("Element at index " + index + " has been deleted.");
             return list;
         }
 
@@ -146,10 +146,10 @@ public class LinkedList {
         // Count for the index to be deleted, keep track of the previous node bc it's needed to change currNode.next
         while (currNode != null) {
             if (counter == index) {
-                // Since the currNode is the required position, unlink currNode from linked list
+                // Since the currNode is the required index, unlink currNode from linked list
                 prev.next = currNode.next;
 
-                System.out.println("Element at position " + index + " has been deleted.");
+                System.out.println("Element at index " + index + " has been deleted.");
                 break;
             }
             else {
@@ -160,7 +160,7 @@ public class LinkedList {
         }
 
         if (currNode == null) {
-            System.out.println("Element at position " + index + " not found.");
+            System.out.println("Element at index " + index + " not found.");
         }
 
         return list;
@@ -192,7 +192,7 @@ public class LinkedList {
             while (currNode != null) {
                 if (counter == index) {
                     value = currNode.data;
-                    System.out.println("The value at position " + index + " is " + value + ".");
+                    System.out.println("The value at index " + index + " is " + value + ".");
                     break;
                 } else {
                     prev = currNode;
